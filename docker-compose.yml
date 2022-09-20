@@ -7,7 +7,7 @@ services:
       - "80:80"
     restart: unless-stopped
     volumes:
-      - /home/hel-ayac/data/php:/var/www/html
+      - wp:/var/www/html
     depends_on:
       - php
     networks:
@@ -20,7 +20,6 @@ services:
     restart: unless-stopped
     volumes:
       - wp:/var/www/html
-      - db:/var/lib/mysql
     env_file:
       - .env
     depends_on:
@@ -39,6 +38,7 @@ services:
       - incep_net
 networks:
   incep_net:
+    name: incep_net
     driver: bridge
 
 volumes:
