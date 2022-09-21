@@ -9,12 +9,12 @@ services:
     volumes:
       - wp:/var/www/html
     depends_on:
-      - php
+      - wordpress
     networks:
       - incep_net
-  php:
-    build: ./php
-    container_name: php
+  wordpress:
+    build: ./wordpress
+    container_name: wordpress
     ports:
       - "9000:9000"
     restart: unless-stopped
