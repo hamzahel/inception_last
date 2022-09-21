@@ -17,7 +17,7 @@ services:
     container_name: wordpress
     ports:
       - "9000:9000"
-    restart: unless-stopped
+    restart: always
     volumes:
       - wp:/var/www/html
     env_file:

@@ -17,7 +17,9 @@ RUN touch /run/php/php7.3-fpm.pid
 #wordpress setup
 
 COPY ./tools/wp.sh /tmp/wp.sh
+COPY ./conf/www.conf /etc/php/7.3/fpm/pool.d
 COPY ./conf/wp-config.php /tmp/wp-config.php
 RUN chmod +x /tmp/wp.sh
-ENTRYPOINT ["bash", "/tmp/wp.sh"]
+RUN bash /tmp/wp.sh
+#ENTRYPOINT ["bash", "/tmp/wp.sh"]
 CMD ["/usr/sbin/php-fpm7.3", "--nodaemonize"]
